@@ -19,9 +19,10 @@ function getPatients() {
     res = JSON.parse(res);
 
     // pretend there's only one patient
-    var medArr = res[0].medicationArray || {};
-    for(var m in medArr){
-      $('#med-desc').append("<tr><td>" + m + "</td></tr>");
+    var medArr = res[0].medicationArray;
+    console.log(medArr);
+    for(var i=0; i<medArr.length; i++){
+      $('#med-desc').append("<tr><td>" + medArr[i] + "</td></tr>");
     }
 
 }
