@@ -214,39 +214,37 @@
                                     <h4 class="title">Send Bill</h4>
                                 </div>
                                 <div class="dropup">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Patients
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul id="patient-dropdown" class="dropdown-menu">
-                                    </ul>
-                                </div>
+                                        <select style="margin:10px" id="SendBill_dropdown" onchange="SendBill(this)">
+                                            <option value="">Select Patient</option>
+                                        </select>
+                                        </button>
+                                    </div>
                                 <div class="content">
-                                    <form id="updateMeds">
+                                    <form id="SendBill">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <labelfor="exampleInputEmail1">Patient ID</label>
-                                                    <input type="text" class="form-control" placeholder="Patient ID">
+                                                    <input type="text" class="form-control" placeholder="Patient ID" id="patientID">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <labelfor="exampleInputEmail1">Bill ID</label>
-                                                    <input type="text" class="form-control" placeholder="Bill ID">
+                                                    <input type="text" class="form-control" placeholder="Bill ID" id="billID">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Money ID</label>
-                                                    <input type="text" class="form-control" placeholder="Enter Money ID">
+                                                    <input type="text" class="form-control" placeholder="Enter Money ID" id="moneyID">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Amount</label>
-                                                <input type="text" class="form-control" placeholder="Enter Amount">
+                                                <input type="text" class="form-control" placeholder="Enter Amount" id="amount">
                                             </div>
                                         </div>
                                     </div>
@@ -256,13 +254,13 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
+    
+                        
+    
+    
                     </div>
                 </div>
-
+    
 
             <div class="col-md-12">
               <div class="card">

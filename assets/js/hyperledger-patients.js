@@ -11,6 +11,8 @@ function getPatients() {
     for(var person in res){
         $("#converted_dropdown_2").append("<option value=\"" + counter + "\">" + res[person].firstname + " " + res[person].lastname +
             "</option>");
+        $("#SendBill_dropdown").append("<option value=\"" + counter + "\">" + res[person].firstname + " " + res[person].lastname +
+        "</option>");
         counter++;
     }
 
@@ -73,5 +75,22 @@ $('#updateMeds').submit(function(e) {
     }));
     
 });
+
+$('#SendBill').submit(function(e) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://10.66.116.98:3000/api/composers.financial.SendBill", false);
+    xhttp.setRequestHeader('Content-type', "application/json");
+    xhttp.send(JSON.stringify({
+        "$class": "composers.financial.SendBill",
+        "billID": $('#billID').val(),        
+        "patientID": $('#patientID').val(),
+        "moneyID": $('#moneyID').val(),
+        "amount": $('#amount').val(),
+        "paid": false
+    }  ));  
+
+    alert(xhttp.status);
+});
+
 
 window.onload = getPatients();
