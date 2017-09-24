@@ -1,3 +1,13 @@
+NOTE: chosen compared to other dashboards b/c doesn't require back-end compilation
+
+### Todos:
+- Customize dashboard for healthcare things
+  - one dashboard for patient; separate one for physicians
+
+- Connect to REST API server
+
+
+
 # [Light Bootstrap Dashboard](http://www.creative-tim.com/product/light-bootstrap-dashboard)
 
 ![alt text](http://s3.amazonaws.com/creativetim_bucket/products/32/original/opt_lbd_thumbnail.jpg "Light Bootstrap Dashboard")
