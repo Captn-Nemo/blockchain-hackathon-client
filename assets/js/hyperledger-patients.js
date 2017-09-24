@@ -50,33 +50,33 @@ $('#patient-dropdown').on('click', '.btn-select', function(e) {
 });
 
 $('#updateMeds').submit(function(e) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "http://10.66.116.98:3000/api/composers.healthrecords.updateMedication", false);
-            xhttp.setRequestHeader('Content-type', "application/json");
-            xhttp.send(JSON.stringify({
-                "$class": "composers.healthrecords.updateMedication",
-                "medicationArray": ["test medz"],
-                "patientInfo": {
-                    "$class": "composers.healthrecords.PatientInfo",
-                    "patientID": "patientID:0427",
-                    "name": {
-                        "$class": "composers.healthrecords.Name",
-                        "firstName": "",
-                        "lastName": ""
-                    },
-                    "medicationArray": [],
-                    "pastVisitsArray": []
-                }
-            }));
-            var res = xhttp.responseText;
-            res = JSON.parse(res);
-            console.log(res)
 
-            // var medArr = res[0].medicationArray;
-            // console.log(medArr);
-            // for (var i = 0; i < medArr.length; i++) {
-            //     $('#med-desc').append("<tr><td>" + medArr[i] + "</td></tr>");
-            // }
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://10.66.116.98:3000/api/composers.healthrecords.updateMedication", false);
+    xhttp.setRequestHeader('Content-type', "application/json");
+    xhttp.send(JSON.stringify({
+        "$class": "composers.healthrecords.updateMedication",
+        "medicationArray": [$('#medicine').val()],
+        "patientInfo": {
+            "$class": "composers.healthrecords.PatientInfo",
+            "patientID": $('#patientID').val(),
+            "name": {
+                "$class": "composers.healthrecords.Name",
+                "firstName": "",
+                "lastName": ""
+            },
+            "medicationArray": [],
+            "pastVisitsArray": []
+        }
+    }));
+    var res = xhttp.responseText;
+    res = JSON.parse(res);
+
+    // var medArr = res[0].medicationArray;
+    // console.log(medArr);
+    // for (var i = 0; i < medArr.length; i++) {
+    //     $('#med-desc').append("<tr><td>" + medArr[i] + "</td></tr>");
+    // }
 });
 
 window.onload = getPatients();
