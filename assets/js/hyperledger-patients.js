@@ -69,6 +69,7 @@ $('#updateMeds').submit(function(e) {
             "pastVisitsArray": []
         }
     }));
+    //hello
     var res = xhttp.responseText;
     res = JSON.parse(res);
 
