@@ -131,6 +131,7 @@ demo = {
     },
     
 	showNotification: function(from, align){
+    /*
     	color = Math.floor((Math.random() * 4) + 1);
     	
     	$.notify({
@@ -145,6 +146,7 @@ demo = {
                 align: align
             }
         });
+        */
 	}
 
     
