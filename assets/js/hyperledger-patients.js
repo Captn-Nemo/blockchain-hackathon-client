@@ -12,6 +12,18 @@ function getPatients() {
         $("#patient-dropdown").append("<li onselect=selectPatient(event)>" + res[person].firstname + " "
             + res[person].lastname + "</li>");
     }
+
+    xhttp.open("GET", "http://10.66.116.98:3000/api/composers.healthrecords.updateMedication", false);
+    xhttp.send();
+    var res = xhttp.responseText;
+    res = JSON.parse(res);
+
+    // pretend there's only one patient
+    var medArr = res[0].medicationArray || {};
+    for(var m in medArr){
+      $('#med-desc').append("<tr><td>" + m + "</td></tr>");
+    }
+
 }
 
 $('#patient-dropdown').on('click', '.btn-select', function (e) {
