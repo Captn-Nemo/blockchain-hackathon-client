@@ -71,15 +71,7 @@ $('#updateMeds').submit(function(e) {
             "pastVisitsArray": []
         }
     }));
-    //hello
-    var res = xhttp.responseText;
-    res = JSON.parse(res);
-
-    // var medArr = res[0].medicationArray;
-    // console.log(medArr);
-    // for (var i = 0; i < medArr.length; i++) {
-    //     $('#med-desc').append("<tr><td>" + medArr[i] + "</td></tr>");
-    // }
+    
 });
 
 window.onload = getPatients();
