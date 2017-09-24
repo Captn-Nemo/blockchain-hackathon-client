@@ -13,13 +13,13 @@ function getPatients() {
             res[person].lastname + "</li>");
     }
 
-    xhttp.open("GET", "http://10.66.116.98:3000/api/composers.healthrecords.updateMedication", false);
+    xhttp.open("GET", "http://10.66.116.98:3000/api/composers.healthrecords.patientInfo", false);
     xhttp.send();
     var res = xhttp.responseText;
     res = JSON.parse(res);
 
     // pretend there's only one patient
-    var medArr = res[0].medicationArray;
+    var medArr = res[1].medicationArray;
     console.log(medArr);
     for (var i = 0; i < medArr.length; i++) {
         $('#med-desc').append("<tr><td>" + medArr[i] + "</td></tr>");
