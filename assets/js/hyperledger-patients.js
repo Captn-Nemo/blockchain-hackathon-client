@@ -1,6 +1,5 @@
-function selectPatient(event) {
-    console.log(event);
-}
+
+var medicineArr = [];
 
 function getPatients() {
     var xhttp = new XMLHttpRequest();
@@ -8,23 +7,26 @@ function getPatients() {
     xhttp.send();
     var res = xhttp.responseText;
     res = JSON.parse(res);
-    for (var person in res) {
-        $("#patient-dropdown").append("<li onselect=selectPatient(event)>" + res[person].firstname + " " +
-            res[person].lastname + "</li>");
+    var counter = 0;
+    for(var person in res){
+        $("#converted_dropdown_2").append("<option value=\"" + counter + "\">" + res[person].firstname + " " + res[person].lastname +
+            "</option>");
+        counter++;
     }
 
-    xhttp.open("GET", "http://10.66.116.98:3000/api/composers.healthrecords.patientInfo", false);
+    xhttp.open("GET", "http://10.66.116.98:3000/api/composers.healthrecords.PatientInfo", false);
     xhttp.send();
     var res = xhttp.responseText;
     res = JSON.parse(res);
-
-    // pretend there's only one patient
-    var medArr = res[1].medicationArray;
-    console.log(medArr);
-    for (var i = 0; i < medArr.length; i++) {
-        $('#med-desc').append("<tr><td>" + medArr[i] + "</td></tr>");
+    for (var i = 0; i < res.length; i++) {
+        medicineArr.push(res[i].medicationArray);
     }
+}
 
+function getMedicine(selectObject) {
+    $('#med-desc').empty();
+    var value = selectObject.value;
+    $('#med-desc').append("<tr><td>" + medicineArr[value] + "</td></tr>");
 }
 
 $('#patient-dropdown').on('click', '.btn-select', function(e) {
